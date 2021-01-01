@@ -1,4 +1,3 @@
-
 variable "description" {
   description = "Description used for both the AWS Lambda function and the API Gateway \"REST API\"."
   default     = ""
@@ -32,11 +31,13 @@ variable "lambda_timeout" {
 
 variable "environment_variables" {
   description = "Map of environment variables to set when executing the Lambda function code."
-  type        = "map"
+  type        = map(string)
 
   # FIXME: We need to set a placeholder value as the default because Terraform
   # won't let us have the environment block with an empty map inside.
-  default     = {"TF_LAMBDA_SERVERLESS__" = "true"}
+  default = {
+    "TF_LAMBDA_SERVERLESS__" = "true"
+  }
 }
 
 variable "api_gateway_name" {
@@ -64,12 +65,12 @@ variable "acm_certificate_arn" {
 variable "tags" {
   description = "Map of tags to apply to all objects that support tags."
   default     = {}
-  type        = "map"
+  type        = map(string)
 }
 
 data "aws_caller_identity" "current" {
 }
 
 data "aws_region" "current" {
-  current = true
 }
+

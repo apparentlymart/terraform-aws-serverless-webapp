@@ -1,6 +1,9 @@
 resource "aws_api_gateway_rest_api" "proxy" {
   name        = var.api_gateway_name
   description = var.description
+  endpoint_configuration {
+    types = [var.rest_api_endpoint_type]
+  }
 }
 
 resource "aws_api_gateway_resource" "proxy" {

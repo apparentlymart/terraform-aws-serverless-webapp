@@ -73,10 +73,3 @@ variable "rest_api_endpoint_type" {
   default     = "EDGE"
   type        = string
 }
-
-data "aws_caller_identity" "current" {
-}
-
-data "aws_region" "current" {
-}
-

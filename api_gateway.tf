@@ -2,8 +2,9 @@ resource "aws_api_gateway_rest_api" "proxy" {
   name        = var.api_gateway_name
   description = var.description
   endpoint_configuration {
-    types = [var.rest_api_endpoint_type]
+    types = [var.api_endpoint_type]
   }
+  binary_media_types = var.api_binary_media_types
 }
 
 resource "aws_api_gateway_resource" "proxy" {

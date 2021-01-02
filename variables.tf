@@ -68,7 +68,7 @@ variable "tags" {
   type        = map(string)
 }
 
-variable "rest_api_endpoint_type" {
+variable "api_endpoint_type" {
   description = "The type of rest API to create. Valid values are EDGE, REGIONAL or PRIVATE."
   default     = "EDGE"
   type        = string
@@ -78,4 +78,10 @@ variable "lookup_artifact_s3_object_version" {
   description = "Whether to lookup S3 object version of artifact key."
   default     = false
   type        = bool
+}
+
+variable "api_binary_media_types" {
+  description = "List of binary types to support"
+  default     = null
+  type        = list(string)
 }

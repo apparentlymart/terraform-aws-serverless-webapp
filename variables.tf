@@ -73,3 +73,9 @@ variable "rest_api_endpoint_type" {
   default     = "EDGE"
   type        = string
 }
+
+variable "lookup_artifact_s3_object_version" {
+  description = "Whether to lookup S3 object version of artifact key."
+  default     = false
+  type        = bool
+}
